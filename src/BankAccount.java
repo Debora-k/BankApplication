@@ -25,7 +25,10 @@ public class BankAccount {
 		amounts.add(amount);
 	}
 	
-	public void withdraw(double amount) {
+	public void withdraw(double amount) throws WithdrawException {
+		if (amount < 0) {
+			throw new WithdrawException();
+		}
 		this.balance -= amount;
 		
 		transactions.add("withdraw");

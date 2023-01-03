@@ -24,7 +24,11 @@ public class BankApplication {
 			} else if (answer == 2) {
 				System.out.println("Enter withdraw amount: ");
 				amount = input.nextDouble();
-				bankaccount.withdraw(amount);
+				try {
+					bankaccount.withdraw(amount);
+				} catch (WithdrawException e) {
+					System.out.println("Please enter a positive amount!");
+				}
 			} else if (answer == 3) {
 				System.out.println("We will undo the previous transaction.");
 				bankaccount.rollback();
