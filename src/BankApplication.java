@@ -16,7 +16,11 @@ public class BankApplication {
 			if (answer == 1) {
 				System.out.println("Enter deposit amount: ");
 				amount = input.nextDouble();
-				bankaccount.deposit(amount);
+				try {
+					bankaccount.deposit(amount);
+				} catch (DepositException e) {
+					System.out.println("Please enter a positive amount!");
+				}
 			} else if (answer == 2) {
 				System.out.println("Enter withdraw amount: ");
 				amount = input.nextDouble();

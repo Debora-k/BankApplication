@@ -16,9 +16,11 @@ public class BankAccount {
 		this.balance = balance;
 	}
 	
-	public void deposit(double amount) {
+	public void deposit(double amount) throws DepositException {
+		if (amount < 0) {
+			throw new DepositException();
+		}
 		this.balance += amount;
-		
 		transactions.add("deposit");
 		amounts.add(amount);
 	}
